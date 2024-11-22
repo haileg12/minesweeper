@@ -1,20 +1,65 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<title>Minesweeper</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper Game</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Digital+7&display=swap');
+    </style>
 </head>
 <body>
-	<div class="box">
-		<br></br>
-		<h2 class="center">Game Start!</h2>
-		<br></br>
-	</div>
-	
-	<fieldset class="center">
-		<p>game displayed here...</p>
-		<button type="button" onclick="window.location.href='index.html'">
-			Quit to Main Menu</button>
-	</fieldset>
+    <div class="box">
+        <h2>Game Start!</h2>
+    </div>
+
+    <div id="game-container">
+        <div id="game-controls">
+            <button id="new-game">New Game</button>
+            <button id="difficulty-easy">Easy</button>
+            <button id="difficulty-medium">Medium</button>
+            <button id="difficulty-hard">Hard</button>
+            <button id="toggle-sound">Toggle Sound</button>
+        </div>
+
+        <div id="game-stats">
+            <div class="stat-box">
+                Mines: <span id="mine-count">10</span>
+            </div>
+            <div class="stat-box">
+                Time: <span id="timer">00:00</span>
+            </div>
+            <div class="stat-box">
+                Moves: <span id="moves">0</span>
+            </div>
+        </div>
+
+        <table id="game-board"></table>
+    </div>
+
+    <div class="center">
+        <button onclick="window.location.href='index.html'">Quit to Main Menu</button>
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="sounds/background.mp3" type="audio/mp3">
+    </audio>
+    <audio id="explosion-sound">
+        <source src="sounds/explosion.mp3" type="audio/mp3">
+    </audio>
+    <audio id="victory-sound">
+        <source src="sounds/victory.mp3" type="audio/mp3">
+    </audio>
+    <audio id="click-sound">
+        <source src="sounds/click.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="game.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const game = new Minesweeper();
+        });
+    </script>
 </body>
 </html>

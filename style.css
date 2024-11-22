@@ -38,3 +38,90 @@ fieldset{
     margin: auto;
 	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
 }
+
+/* Additional styles for the game */
+.cell {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+.cell-unrevealed {
+    background-color: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+}
+
+.cell-revealed {
+    background-color: #e0e0e0;
+    border: 1px solid #a0a0a0;
+}
+
+.cell-unrevealed-ocean {
+    background-color: #4FA4D6;
+    border: 2px solid;
+    border-color: #7FC4E6 #2D84B6 #2D84B6 #7FC4E6;
+}
+
+.cell-revealed-ocean {
+    background-color: #7FC4E6;
+    border: 1px solid #4FA4D6;
+}
+
+.cell-unrevealed-forest {
+    background-color: #68B46C;
+    border: 2px solid;
+    border-color: #88D48C #48944C #48944C #88D48C;
+}
+
+.cell-revealed-forest {
+    background-color: #88D48C;
+    border: 1px solid #68B46C;
+}
+
+.number-1 { color: blue; }
+.number-2 { color: green; }
+.number-3 { color: red; }
+.number-4 { color: darkblue; }
+.number-5 { color: darkred; }
+.number-6 { color: teal; }
+.number-7 { color: black; }
+.number-8 { color: gray; }
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+#game-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#game-stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    background-color: #000;
+    color: #ff0000;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-family: 'Digital', monospace;
+}
+
+#game-board {
+    border-collapse: collapse;
+    background-color: #808080;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Minesweeper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="box">
+        <h2>Register</h2>
+    </div>
+
+    <fieldset>
+        <form id="register-form">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <div class="center">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+    </fieldset>
+
+    <div class="center">
+        <button onclick="window.location.href='index.html'">Return to Main Menu</button>
+    </div>
+
+    <script>
+        document.getElementById('register-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+            
+            const formData = new FormData(e.target);
+            
+            try {
+                const response = await fetch('register.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert('Registration successful! Please login.');
+                    window.location.href = 'login.html';
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
